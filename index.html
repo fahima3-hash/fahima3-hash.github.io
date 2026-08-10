@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahima - Personal Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-top: 30px;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            border: 5px solid #667eea;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        ul li:last-child {
+            border-bottom: none;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #764ba2;
+            text-decoration: none;
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: #667eea;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .social-links a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Picture -->
+        <img src="profile.jpg" alt="Fahima" class="profile-img">
+        
+        <!-- Name -->
+        <h1>Fahima</h1>
+        
+        <!-- About Me -->
+        <div class="section">
+            <h2>📖 About Me</h2>
+            <p>Hello! I'm Fahima. Welcome to my personal website. 
+            I'm passionate about learning and technology. 
+            This is my GitHub Pages site created as part of my coursework.</p>
+        </div>
+        
+        <!-- Hobbies and Interests -->
+        <div class="section">
+            <h2>🎯 Hobbies & Interests</h2>
+            <ul>
+                <li>💻 Programming & Web Development</li>
+                <li>📚 Reading Books</li>
+                <li>🎨 Creative Design</li>
+                <li>🌍 Exploring New Technologies</li>
+            </ul>
+        </div>
+        
+        <!-- CV -->
+        <div class="section">
+            <h2>📄 CV / Resume</h2>
+            <p>Download my CV to learn more about my background and experience:</p>
+            <a href="cv.pdf" class="download-btn" download>📥 Download CV (PDF)</a>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://github.com/fahimashash">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Email</a>
+        </div>
+    </div>
+</body>
+</html>
