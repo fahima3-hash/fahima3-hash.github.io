@@ -19,8 +19,8 @@
             font-family: 'Poppins', sans-serif;
             background: #0a0a0a;
             min-height: 100vh;
-            overflow: hidden;
             color: white;
+            overflow-x: hidden;
         }
 
         /* 3D Animated Background */
@@ -34,7 +34,7 @@
             z-index: -2;
         }
 
-        /* Floating Animated Shapes */
+        /* Floating Shapes */
         .floating-shapes {
             position: fixed;
             top: 0;
@@ -112,7 +112,7 @@
             }
         }
 
-        /* Floating Particles */
+        /* Particles */
         .particles {
             position: fixed;
             top: 0;
@@ -147,7 +147,7 @@
             }
         }
 
-        /* Main Container - Split Screen */
+        /* Main Container */
         .container {
             display: flex;
             min-height: 100vh;
@@ -158,15 +158,17 @@
             z-index: 1;
             align-items: center;
             gap: 50px;
+            flex-wrap: wrap;
         }
 
-        /* Left Side - Image */
+        /* Left Side */
         .left-side {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             perspective: 1000px;
+            min-width: 300px;
         }
 
         .image-wrapper {
@@ -196,7 +198,6 @@
             border-color: rgba(102, 126, 234, 0.6);
         }
 
-        /* Floating Glow Behind Image */
         .image-wrapper::before {
             content: '';
             position: absolute;
@@ -221,7 +222,6 @@
             }
         }
 
-        /* Badge on Image */
         .image-badge {
             position: absolute;
             bottom: -20px;
@@ -244,13 +244,13 @@
             }
         }
 
-        /* Right Side - Content */
+        /* Right Side */
         .right-side {
             flex: 1;
             padding: 20px 0;
+            min-width: 300px;
         }
 
-        /* Name with Gradient */
         .name {
             font-size: 4rem;
             font-weight: 800;
@@ -285,7 +285,6 @@
             margin-top: 5px;
         }
 
-        /* Description */
         .description {
             margin-top: 25px;
             color: rgba(255, 255, 255, 0.7);
@@ -294,7 +293,6 @@
             max-width: 500px;
         }
 
-        /* Tags / Skills */
         .tags {
             display: flex;
             flex-wrap: wrap;
@@ -320,7 +318,6 @@
             box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
         }
 
-        /* Buttons */
         .buttons {
             display: flex;
             gap: 15px;
@@ -369,7 +366,6 @@
             transform: translateY(-3px);
         }
 
-        /* Social Icons */
         .social-icons {
             display: flex;
             gap: 15px;
@@ -398,7 +394,6 @@
             border-color: transparent;
         }
 
-        /* Stats */
         .stats {
             display: flex;
             gap: 40px;
@@ -421,6 +416,158 @@
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.5);
             margin-top: 5px;
+        }
+
+        /* ===== PROJECTS SECTION (Hidden by default) ===== */
+        .projects-section {
+            display: none;
+            width: 100%;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .projects-section.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .projects-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(102, 126, 234, 0.1), transparent 30%);
+            animation: rotateCard 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotateCard {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .project-card .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .project-card h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .project-tech span {
+            background: rgba(102, 126, 234, 0.15);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #667eea;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+            transform: translateX(5px);
+        }
+
+        /* Close Projects Button */
+        .close-projects {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 40px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .close-projects:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
         }
 
         /* Responsive */
@@ -468,6 +615,7 @@
 
             .stats {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .image-badge {
@@ -475,6 +623,10 @@
                 right: -10px;
                 padding: 10px 18px;
                 font-size: 0.7rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -494,7 +646,6 @@
 
             .stats {
                 gap: 20px;
-                flex-wrap: wrap;
             }
 
             .btn-primary, .btn-secondary {
@@ -543,7 +694,7 @@
                 I turn ideas into reality through code and design. Welcome to my personal portfolio!
             </p>
 
-            <!-- Tags / Skills -->
+            <!-- Tags -->
             <div class="tags">
                 <span class="tag">💻 Web Development</span>
                 <span class="tag">🎨 UI/UX Design</span>
@@ -554,7 +705,7 @@
 
             <!-- Buttons -->
             <div class="buttons">
-                <a href="#" class="btn-primary">📄 View My Work</a>
+                <button class="btn-primary" onclick="toggleProjects()">📂 View My Work</button>
                 <a href="cv.pdf" download class="btn-secondary">📥 Download CV</a>
             </div>
 
@@ -584,9 +735,129 @@
             </div>
         </div>
 
+        <!-- ===== PROJECTS SECTION ===== -->
+        <div class="projects-section" id="projectsSection">
+            <h2>📂 My Projects</h2>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="content">
+                        <span class="project-icon">🌐</span>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A fully responsive 3D portfolio website with interactive animations and a modern design.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>3D Effects</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="content">
+                        <span class="project-icon">🛒</span>
+                        <h3>E-Commerce Website</h3>
+                        <p>A complete e-commerce platform with product listings, cart functionality, and payment integration.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Stripe</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="content">
+                        <span class="project-icon">📱</span>
+                        <h3>Weather App</h3>
+                        <p>A real-time weather application that shows current weather, forecast, and interactive maps.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>API</span>
+                            <span>CSS</span>
+                            <span>Responsive</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="content">
+                        <span class="project-icon">🎮</span>
+                        <h3>JavaScript Game</h3>
+                        <p>An interactive browser-based game built with pure JavaScript, HTML, and CSS.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Canvas</span>
+                            <span>HTML5</span>
+                            <span>CSS</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="content">
+                        <span class="project-icon">📊</span>
+                        <h3>Dashboard UI</h3>
+                        <p>A modern admin dashboard with charts, analytics, and data visualization components.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Chart.js</span>
+                            <span>Tailwind</span>
+                            <span>Firebase</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="content">
+                        <span class="project-icon">📝</span>
+                        <h3>Blog Platform</h3>
+                        <p>A full-featured blog platform with user authentication, comments, and rich text editing.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>Bootstrap</span>
+                        </div>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="close-projects" onclick="toggleProjects()">✕ Close Projects</button>
+        </div>
+
     </div>
 
     <script>
+        // ===== TOGGLE PROJECTS =====
+        function toggleProjects() {
+            const section = document.getElementById('projectsSection');
+            section.classList.toggle('active');
+
+            // Scroll to projects when opened
+            if (section.classList.contains('active')) {
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
         // ===== FLOATING PARTICLES =====
         function createParticles() {
             const container = document.getElementById('particles');
@@ -604,7 +875,7 @@
         }
         createParticles();
 
-        // ===== 3D IMAGE TILT ON MOUSE MOVE =====
+        // ===== 3D IMAGE TILT =====
         const imageWrapper = document.querySelector('.image-wrapper');
         imageWrapper.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
