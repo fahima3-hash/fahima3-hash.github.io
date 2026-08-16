@@ -418,7 +418,7 @@
             margin-top: 5px;
         }
 
-        /* ===== PROJECTS SECTION (Hidden by default) ===== */
+        /* ===== PROJECTS SECTION ===== */
         .projects-section {
             display: none;
             width: 100%;
@@ -551,7 +551,6 @@
             transform: translateX(5px);
         }
 
-        /* Close Projects Button */
         .close-projects {
             display: block;
             margin: 30px auto 0;
@@ -686,7 +685,7 @@
         <!-- Right Side - Content -->
         <div class="right-side">
             <div class="subtitle">👋 Hello, I'm</div>
-            <h1 class="name">Fahima Sultana Tina</h1>
+            <h1 class="name">Fahima</h1>
             <div class="title-role">🌟 Passionate Developer &amp; Creative Thinker</div>
 
             <p class="description">
@@ -699,14 +698,14 @@
                 <span class="tag">💻 Web Development</span>
                 <span class="tag">🎨 UI/UX Design</span>
                 <span class="tag">📱 Responsive Design</span>
-                <span class="tag">⚡ Corporate Presentation Skill</span>
+                <span class="tag">⚡ 3D Animations</span>
                 <span class="tag">🌟 Creative Thinker</span>
             </div>
 
             <!-- Buttons -->
             <div class="buttons">
                 <button class="btn-primary" onclick="toggleProjects()">📂 View My Work</button>
-                <a href="cv.pdf" download class="btn-secondary">📥 Download CV</a>
+                <a href="cv-me.pdf" download class="btn-secondary">📥 Download CV</a>
             </div>
 
             <!-- Social Icons -->
@@ -850,7 +849,6 @@
             const section = document.getElementById('projectsSection');
             section.classList.toggle('active');
 
-            // Scroll to projects when opened
             if (section.classList.contains('active')) {
                 setTimeout(() => {
                     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
